@@ -6,8 +6,7 @@
 // @version     1
 // @grant       none
 // ==/UserScript==
-
-(function() {
+setTimeout(function() {
     "use strict";
 
     var doc = document;
@@ -25,10 +24,10 @@
         element = all[i];
         var text = element.querySelectorAll('.title > span > a > span:last-child');
         try {
-            if (text[0].innerHTML === 'Add to Watchlist') {
-                not_watched.push(element); 
+            if (text[0].innerHTML === 'Watchlist') {
+                watched.push(element);
             } else { 
-                watched.push(element); 
+                not_watched.push(element); 
             }  
             watched.forEach(function( el ) {
                 el.style = 'display: none'; 
@@ -39,4 +38,4 @@
     } 
 
     console.log('%i watched titles', watched.length); 
-}());
+}, 2000);
